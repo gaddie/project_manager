@@ -10,6 +10,28 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  String _greeting = 'Good morning'; // Default greeting
+
+  @override
+  void initState() {
+    super.initState();
+    // Set the greeting based on the current time
+    _setGreeting();
+  }
+
+  void _setGreeting() {
+    DateTime now = DateTime.now();
+    int hour = now.hour;
+
+    if (hour >= 12 && hour < 17) {
+      _greeting = 'Good afternoon';
+    } else if (hour >= 17 && hour < 24) {
+      _greeting = 'Good evening';
+    }
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +67,7 @@ class _HomepageState extends State<Homepage> {
                           width: 20,
                         ),
                         Text(
-                          'Good morning!',
+                          _greeting,
                           style: TextStyle(
                             fontFamily: 'Courgette',
                             fontSize: 20,
