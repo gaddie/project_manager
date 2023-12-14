@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
+import 'package:project_manager/Tile.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -12,15 +13,20 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(
-                  'https://www.shutterstock.com/image-photo/construction-planning-drawings-on-black-600nw-539172220.jpg'),
-              fit: BoxFit.cover, // Adjust the BoxFit based on your requirements
-            ),
+      appBar: AppBar(
+        backgroundColor: kReportsColor,
+        title: Center(
+          child: Text('Project manager'),
+        ),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/bg.webp'),
+            fit: BoxFit.cover,
           ),
+        ),
+        child: SafeArea(
           child: Column(
             children: [
               Padding(
@@ -38,7 +44,13 @@ class _HomepageState extends State<Homepage> {
                         SizedBox(
                           width: 20,
                         ),
-                        Text('Good morning')
+                        Text(
+                          'Good morning!',
+                          style: TextStyle(
+                            fontFamily: 'Courgette',
+                            fontSize: 20,
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -46,43 +58,27 @@ class _HomepageState extends State<Homepage> {
               ),
               Row(
                 children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(20),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 150,
-                          child: Center(
-                            child: Text('Create New Project'),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: kMainColor.withOpacity(0.8),
-                          ),
-                        ),
-                      ),
-                    ),
+                  TileBuilder(
+                    text: 'New Project',
+                    color: kMainColor,
+                    icon: Icons.add,
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(20),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 150,
-                          child: Center(
-                            child: Text('Delete Project'),
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: kDeleteColor.withOpacity(0.8),
-                          ),
-                        ),
-                      ),
-                    ),
+                  TileBuilder(
+                    text: 'Delete Project',
+                    color: kDeleteColor,
+                    icon: Icons.close,
                   ),
                 ],
+              ),
+              TileBuilder(
+                text: 'Expense Tracking',
+                color: kExpenseColor,
+                icon: Icons.trending_up,
+              ),
+              TileBuilder(
+                text: 'Reports & Charts',
+                color: kReportsColor,
+                icon: Icons.bar_chart,
               ),
             ],
           ),
