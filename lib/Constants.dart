@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const kMainColor = Color(0xFF64CCC5);
-const kDeleteColor = Color(0xFFFF5B22);
-const kExpenseColor = Color(0xFF64CCC5);
-const kReportsColor = Color(0xFF232D3F);
+const kDarkColor = Color(0xFF4F4557);
+const kLightColor = Color(0xFFF4EEE0);
+const double kNormalFontSize = 18.0;
+const double kTitleFontSize = 23.0;
+const kCardColor = Color(0xFFF3F8FF);
