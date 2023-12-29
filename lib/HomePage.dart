@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project_manager/CreateProject.dart';
 import 'package:project_manager/ReusableCard.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:project_manager/TitleBanner.dart';
+import 'package:animations/animations.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -14,74 +16,94 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: kLightColor,
-        body: CustomScrollView(
-          slivers: [
-            SliverPersistentHeader(
-              delegate: SliverSearchAppBar(),
-              pinned: true,
-            ),
-            SliverToBoxAdapter(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  TitleBanner(
-                    title: "Dashboard",
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ReusableCard(
-                          icon: Icons.account_balance_wallet,
-                          label: 'Expense Tracking',
-                          colour: kCardColor,
-                          iconColour: kDarkColor,
-                        ),
+      backgroundColor: kLightColor,
+      body: CustomScrollView(
+        slivers: [
+          SliverPersistentHeader(
+            delegate: SliverAppBar(),
+            pinned: true,
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TitleBanner(
+                  title: "Dashboard",
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ReusableCard(
+                        icon: Icons.account_balance_wallet,
+                        label: 'Expense Tracking',
+                        colour: kCardColor,
+                        iconColour: kDarkColor,
                       ),
-                      Expanded(
-                        child: ReusableCard(
-                          icon: Icons.bar_chart,
-                          label: 'Reports & Charts',
-                          colour: kDarkColor,
-                          iconColour: kCardColor,
-                        ),
+                    ),
+                    Expanded(
+                      child: ReusableCard(
+                        icon: Icons.bar_chart,
+                        label: 'Reports & Charts',
+                        colour: kDarkColor,
+                        iconColour: kCardColor,
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TitleBanner(title: 'Projects'),
-                  ReusableCard(
-                    icon: Icons.account_balance_wallet,
-                    label: 'Expense Tracking',
-                    colour: kCardColor,
-                    iconColour: kDarkColor,
-                  ),
-                  ReusableCard(
-                    icon: Icons.account_balance_wallet,
-                    label: 'Expense Tracking',
-                    colour: kCardColor,
-                    iconColour: kDarkColor,
-                  ),
-                  ReusableCard(
-                    icon: Icons.account_balance_wallet,
-                    label: 'Expense Tracking',
-                    colour: kCardColor,
-                    iconColour: kDarkColor,
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TitleBanner(title: 'Projects'),
+                ReusableCard(
+                  icon: Icons.account_balance_wallet,
+                  label: 'Expense Tracking',
+                  colour: kCardColor,
+                  iconColour: kDarkColor,
+                ),
+                ReusableCard(
+                  icon: Icons.account_balance_wallet,
+                  label: 'Expense Tracking',
+                  colour: kCardColor,
+                  iconColour: kDarkColor,
+                ),
+                ReusableCard(
+                  icon: Icons.account_balance_wallet,
+                  label: 'Expense Tracking',
+                  colour: kCardColor,
+                  iconColour: kDarkColor,
+                ),
+              ],
             ),
-          ],
+          ),
+        ],
+      ),
+      floatingActionButton: OpenContainer(
+        closedColor: kDarkColor,
+        transitionType: ContainerTransitionType.fade,
+        openBuilder: (BuildContext context, VoidCallback _) {
+          // This is the page that will be shown when FAB is clicked
+          return CreateProject(); // Replace with the actual page you want to show
+        },
+        closedElevation: 6.0,
+        closedShape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(56)),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: kDarkColor,
-          onPressed: () {},
-          child: Icon(Icons.add),
-        ));
+        closedBuilder: (BuildContext context, VoidCallback openContainer) {
+          return FloatingActionButton(
+            onPressed: openContainer,
+            backgroundColor: kDarkColor,
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+          );
+        },
+      ),
+    );
   }
 }
+
+// used to create the sliver AppBar with the animation
 
 class BackgroundWaveClipper extends CustomClipper<Path> {
   @override
@@ -108,7 +130,7 @@ class BackgroundWaveClipper extends CustomClipper<Path> {
   bool shouldReclip(BackgroundWaveClipper oldClipper) => oldClipper != this;
 }
 
-class SliverSearchAppBar extends SliverPersistentHeaderDelegate {
+class SliverAppBar extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
     BuildContext context,
