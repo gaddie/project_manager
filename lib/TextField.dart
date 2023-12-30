@@ -13,7 +13,7 @@ class ProjectForm extends StatelessWidget {
             'Description',
             style: TextStyle(
               color: kLightColor,
-              fontSize: 16.0,
+              fontSize: kNormalFontSize,
             ),
           ),
           SizedBox(height: 8.0),

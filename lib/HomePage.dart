@@ -4,6 +4,7 @@ import 'package:project_manager/ReusableCard.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:project_manager/TitleBanner.dart';
 import 'package:animations/animations.dart';
+import 'package:project_manager/ExpenseTracking.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -34,12 +35,12 @@ class _HomepageState extends State<Homepage> {
                   children: [
                     Expanded(
                       child: ReusableCard(
-                        label: 'Reports & Charts',
-                        icon: Icons.bar_chart,
+                        label: 'Expense Tracking',
+                        icon: Icons.account_balance_wallet,
                         colour: kDarkColor,
                         iconColour: kCardColor,
                         onButtonPressed: () {
-                          return CreateProject(); // Replace with the actual page/widget you want to show
+                          return ExpenseTracking(); // Replace with the actual page/widget you want to show
                         },
                       ),
                     ),
@@ -61,8 +62,17 @@ class _HomepageState extends State<Homepage> {
                 ),
                 TitleBanner(title: 'Projects'),
                 ReusableCard(
-                  label: 'Reports & Charts',
-                  icon: Icons.bar_chart,
+                  label: 'Porject 1',
+                  icon: Icons.assignment,
+                  colour: kDarkColor,
+                  iconColour: kCardColor,
+                  onButtonPressed: () {
+                    return CreateProject(); // Replace with the actual page/widget you want to show
+                  },
+                ),
+                ReusableCard(
+                  label: 'Porject 2',
+                  icon: Icons.assignment,
                   colour: kDarkColor,
                   iconColour: kCardColor,
                   onButtonPressed: () {
