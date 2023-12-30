@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
+import 'package:project_manager/CustomButton.dart';
 
 class ExpenseTracking extends StatefulWidget {
   @override
@@ -11,43 +12,57 @@ class _ExpenseTrackingState extends State<ExpenseTracking> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 50,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: IncomeSlider(
-                      label: 'Income',
-                      isSelected: selectedOption == 'Income',
-                      onTapCallback: () {
-                        setState(() {
-                          selectedOption = 'Income';
-                        });
-                      },
+    return Scaffold(
+      backgroundColor: kBgLightColor,
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                height: 50,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: IncomeSlider(
+                        label: 'Income',
+                        isSelected: selectedOption == 'Income',
+                        onTapCallback: () {
+                          setState(() {
+                            selectedOption = 'Income';
+                          });
+                        },
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: IncomeSlider(
-                      label: 'Expense',
-                      isSelected: selectedOption == 'Expense',
-                      onTapCallback: () {
-                        setState(() {
-                          selectedOption = 'Expense';
-                        });
-                      },
+                    Expanded(
+                      child: IncomeSlider(
+                        label: 'Expense',
+                        isSelected: selectedOption == 'Expense',
+                        onTapCallback: () {
+                          setState(() {
+                            selectedOption = 'Expense';
+                          });
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+            CustomButton(
+              txtColor: kDarkColor,
+              bgColor: kLightColor,
+              callBackFunction: () {
+                setState(() {
+                  Navigator.pop(context);
+                });
+              },
+              label: 'Back',
+            ),
+          ],
+        ),
       ),
     );
   }

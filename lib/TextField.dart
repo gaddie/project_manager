@@ -12,7 +12,7 @@ class ProjectForm extends StatelessWidget {
           Text(
             'Description',
             style: TextStyle(
-              color: kLightColor,
+              color: kDarkColor,
               fontSize: kNormalFontSize,
             ),
           ),
@@ -33,7 +33,7 @@ class ProjectForm extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10.0),
-                borderSide: BorderSide(color: kLightColor),
+                borderSide: BorderSide(color: kDarkColor),
               ),
             ),
           ),

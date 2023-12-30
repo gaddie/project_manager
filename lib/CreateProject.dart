@@ -15,17 +15,17 @@ class _CreateProjectState extends State<CreateProject> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kDarkColor,
+      backgroundColor: kBgLightColor,
       appBar: AppBar(
-        backgroundColor: kDarkColor,
+        backgroundColor: kBgLightColor,
         title: Text(
           'Create Project',
-          style: TextStyle(color: kLightColor),
+          style: TextStyle(color: kDarkColor),
         ),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: kLightColor,
+            color: kDarkColor,
           ),
           onPressed: () {
             Navigator.pop(
