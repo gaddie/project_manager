@@ -54,7 +54,8 @@ class _CreateProjectState extends State<CreateProject> {
                   padding: EdgeInsets.symmetric(vertical: 17),
                   child: Text(
                     'Create Project',
-                    style: TextStyle(color: kDarkColor),
+                    style:
+                        TextStyle(color: kDarkColor, fontSize: kNormalFontSize),
                   ),
                 ),
               ),

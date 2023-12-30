@@ -34,18 +34,24 @@ class _HomepageState extends State<Homepage> {
                   children: [
                     Expanded(
                       child: ReusableCard(
-                        icon: Icons.account_balance_wallet,
-                        label: 'Expense Tracking',
-                        colour: kCardColor,
-                        iconColour: kDarkColor,
+                        label: 'Reports & Charts',
+                        icon: Icons.bar_chart,
+                        colour: kDarkColor,
+                        iconColour: kCardColor,
+                        onButtonPressed: () {
+                          return CreateProject(); // Replace with the actual page/widget you want to show
+                        },
                       ),
                     ),
                     Expanded(
                       child: ReusableCard(
-                        icon: Icons.bar_chart,
                         label: 'Reports & Charts',
+                        icon: Icons.bar_chart,
                         colour: kDarkColor,
                         iconColour: kCardColor,
+                        onButtonPressed: () {
+                          return CreateProject(); // Replace with the actual page/widget you want to show
+                        },
                       ),
                     ),
                   ],
@@ -55,22 +61,13 @@ class _HomepageState extends State<Homepage> {
                 ),
                 TitleBanner(title: 'Projects'),
                 ReusableCard(
-                  icon: Icons.account_balance_wallet,
-                  label: 'Expense Tracking',
-                  colour: kCardColor,
-                  iconColour: kDarkColor,
-                ),
-                ReusableCard(
-                  icon: Icons.account_balance_wallet,
-                  label: 'Expense Tracking',
-                  colour: kCardColor,
-                  iconColour: kDarkColor,
-                ),
-                ReusableCard(
-                  icon: Icons.account_balance_wallet,
-                  label: 'Expense Tracking',
-                  colour: kCardColor,
-                  iconColour: kDarkColor,
+                  label: 'Reports & Charts',
+                  icon: Icons.bar_chart,
+                  colour: kDarkColor,
+                  iconColour: kCardColor,
+                  onButtonPressed: () {
+                    return CreateProject(); // Replace with the actual page/widget you want to show
+                  },
                 ),
               ],
             ),
@@ -81,7 +78,6 @@ class _HomepageState extends State<Homepage> {
         closedColor: kDarkColor,
         transitionType: ContainerTransitionType.fade,
         openBuilder: (BuildContext context, VoidCallback _) {
-          // This is the page that will be shown when FAB is clicked
           return CreateProject(); // Replace with the actual page you want to show
         },
         closedElevation: 6.0,
