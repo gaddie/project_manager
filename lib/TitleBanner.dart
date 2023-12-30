@@ -19,7 +19,6 @@ class TitleBanner extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: kDarkColor, // Shadow color
@@ -29,13 +28,13 @@ class TitleBanner extends StatelessWidget {
         ],
       ),
       width: double.infinity,
-      padding: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(2.0),
       child: Card(
         color: kLightColor,
         shadowColor: kLightColor,
         elevation: 5.0,
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(6.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
