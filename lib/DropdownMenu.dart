@@ -42,9 +42,12 @@ class _MyDropdownMenuState extends State<MyDropdownMenu> {
             isExpanded: true,
             value: dropdownValue.isNotEmpty ? dropdownValue : null,
             onChanged: (String? value) {
-              setState(() {
-                dropdownValue = value ?? '';
-              });
+              // Check if the selected value is present in the list
+              if (list.contains(value)) {
+                setState(() {
+                  dropdownValue = value ?? '';
+                });
+              }
             },
             items: list.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
