@@ -46,7 +46,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     Expanded(
                       child: ReusableCard(
-                        label: 'Reports & Charts',
+                        label: 'Reports &\nCharts',
                         icon: Icons.bar_chart,
                         colour: kDarkColor,
                         iconColour: kCardColor,

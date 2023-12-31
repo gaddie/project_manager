@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   animations: ^2.0.10
+  animated_expandable_fab: any
 
 dev_dependencies:
   flutter_test:
