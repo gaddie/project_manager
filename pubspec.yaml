@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   animations: ^2.0.10
   animated_expandable_fab: any
+  fl_chart: ^0.66.0
 
 dev_dependencies:
   flutter_test:
@@ -27,7 +28,7 @@ flutter:
 
 
   assets:
-     - images/
+    - images/
   fonts:
     - family: Courgette
       fonts:
@@ -35,4 +36,3 @@ flutter:
     - family: Teko
       fonts:
         - asset: fonts/Teko-VariableFont_wght.ttf
-

@@ -5,6 +5,7 @@ import 'package:project_manager/Constants.dart';
 import 'package:project_manager/TitleBanner.dart';
 import 'package:animations/animations.dart';
 import 'package:project_manager/ExpenseTracking.dart';
+import 'package:project_manager/ReportsPage.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _HomepageState extends State<Homepage> {
                         colour: kDarkColor,
                         iconColour: kCardColor,
                         onButtonPressed: () {
-                          return CreateProject(); // Replace with the actual page/widget you want to show
+                          return ReportsPage(); // Replace with the actual page/widget you want to show
                         },
                       ),
                     ),
@@ -72,6 +73,15 @@ class _HomepageState extends State<Homepage> {
                 ),
                 ReusableCard(
                   label: 'Porject 2',
+                  icon: Icons.assignment,
+                  colour: kDarkColor,
+                  iconColour: kCardColor,
+                  onButtonPressed: () {
+                    return CreateProject(); // Replace with the actual page/widget you want to show
+                  },
+                ),
+                ReusableCard(
+                  label: 'Porject 3',
                   icon: Icons.assignment,
                   colour: kDarkColor,
                   iconColour: kCardColor,
