@@ -25,8 +25,8 @@ class _MyLineChartState extends State<MyLineChart> {
           aspectRatio: 1.40,
           child: Padding(
             padding: const EdgeInsets.only(
-              right: 10,
-              left: 12,
+              right: 20,
+              left: 10,
               top: 24,
               bottom: 12,
             ),
@@ -45,10 +45,10 @@ class _MyLineChartState extends State<MyLineChart> {
               });
             },
             child: Text(
-              'ROI',
+              'avg',
               style: TextStyle(
                 fontSize: 12,
-                //used to change the color of ROI when pressed
+                //used to change the color of avg when pressed
                 color: showAvg ? Colors.red : Colors.black,
               ),
             ),
@@ -133,6 +133,20 @@ class _MyLineChartState extends State<MyLineChart> {
         break;
       case 5:
         text = '50k';
+      case 6:
+        text = '60K';
+        break;
+      case 7:
+        text = '70k';
+        break;
+      case 8:
+        text = '80k';
+        break;
+      case 9:
+        text = '90k';
+        break;
+      case 10:
+        text = '100k';
         break;
       default:
         return Container();
@@ -194,7 +208,7 @@ class _MyLineChartState extends State<MyLineChart> {
       minX: 0,
       maxX: 12,
       minY: 0,
-      maxY: 10,
+      maxY: 11,
       lineBarsData: [
         LineChartBarData(
           spots: const [
@@ -287,7 +301,7 @@ class _MyLineChartState extends State<MyLineChart> {
       minX: 0,
       maxX: 12,
       minY: 0,
-      maxY: 10,
+      maxY: 11,
       lineBarsData: [
         LineChartBarData(
           spots: const [
