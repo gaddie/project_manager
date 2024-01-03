@@ -2,12 +2,13 @@
 // import 'package:fl_chart_app/util/extensions/color_extensions.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:project_manager/Constants.dart';
 
 class BarChartSample2 extends StatefulWidget {
   BarChartSample2({super.key});
   final Color leftBarColor = Colors.green;
   final Color rightBarColor = Colors.red;
-  final Color avgColor = Colors.orange.shade900;
+  final Color avgColor = kDarkColor;
   @override
   State<StatefulWidget> createState() => BarChartSample2State();
 }
@@ -56,13 +57,51 @@ class BarChartSample2State extends State<BarChartSample2> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 makeTransactionsIcon(),
                 Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
                     'Weekly Transactions',
-                    style: TextStyle(color: Colors.black, fontSize: 22),
+                    style: TextStyle(color: Colors.black, fontSize: 18),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(10)),
+                            width: 20,
+                            height: 7,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(10)),
+                            width: 20,
+                            height: 7,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        children: [
+                          Text('Income'),
+                          Text('Expense'),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ],
@@ -227,7 +266,7 @@ class BarChartSample2State extends State<BarChartSample2> {
     );
   }
 
-  // bar chart decoration
+  // bar chart icon
   Widget makeTransactionsIcon() {
     const width = 4.5;
     const space = 3.5;

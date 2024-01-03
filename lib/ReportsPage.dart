@@ -15,6 +15,7 @@ class _ReportsPageState extends State<ReportsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBgLightColor,
       body: SafeArea(
         child: ListView(
           children: [
@@ -30,8 +31,8 @@ class _ReportsPageState extends State<ReportsPage> {
                       return ChartsPage();
                     }),
                 CustomButton(
-                  txtColor: kDarkColor,
-                  bgColor: kLightColor,
+                  txtColor: kLightColor,
+                  bgColor: kDarkColor,
                   callBackFunction: () {
                     setState(() {
                       Navigator.pop(context);

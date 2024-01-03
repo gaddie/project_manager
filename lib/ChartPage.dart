@@ -16,32 +16,31 @@ class _ChartsPageState extends State<ChartsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBgLightColor,
-      body: ListView(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              BarChartSample2(),
-              SizedBox(
-                height: 20,
-              ),
-              MyLineChart(),
-              SizedBox(
-                height: 20,
-              ),
-              CustomButton(
-                txtColor: kDarkColor,
-                bgColor: kLightColor,
-                callBackFunction: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                label: 'Back',
-              ),
-            ],
-          )
-        ],
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                BarChartSample2(),
+                SizedBox(
+                  height: 20,
+                ),
+                MyLineChart(),
+                CustomButton(
+                  txtColor: kLightColor,
+                  bgColor: kDarkColor,
+                  callBackFunction: () {
+                    setState(() {
+                      Navigator.pop(context);
+                    });
+                  },
+                  label: 'Back',
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
