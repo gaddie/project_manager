@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:project_manager/ChartPage.dart';
-import 'ReusableCard.dart';
+import 'package:project_manager/ReportsCard.dart';
 import 'package:project_manager/CustomButton.dart';
 
 class ReportsPage extends StatefulWidget {
@@ -22,14 +22,26 @@ class _ReportsPageState extends State<ReportsPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ReusableCard(
-                    label: 'Project',
-                    icon: Icons.info,
-                    colour: kDarkColor,
-                    iconColour: kLightColor,
-                    onButtonPressed: () {
-                      return ChartsPage();
-                    }),
+                ReportsCard(
+                  financialPerfomance: '5',
+                  label: 'Project Name',
+                  icon: kUpArrow,
+                  amountSpent: '20,000',
+                  iconColour: kGreenColor,
+                  onButtonPressed: () {
+                    return ChartsPage();
+                  },
+                ),
+                ReportsCard(
+                  financialPerfomance: '20',
+                  label: 'Project Name',
+                  icon: kDownArrow,
+                  amountSpent: '5,000',
+                  iconColour: kRedColor,
+                  onButtonPressed: () {
+                    return ChartsPage();
+                  },
+                ),
                 CustomButton(
                   txtColor: kLightColor,
                   bgColor: kDarkColor,
