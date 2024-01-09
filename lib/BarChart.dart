@@ -59,7 +59,7 @@ class BarChartSample2State extends State<BarChartSample2> {
               children: <Widget>[
                 makeTransactionsIcon(),
                 Padding(
-                  padding: EdgeInsets.only(left: 20),
+                  padding: EdgeInsets.only(left: 10),
                   child: Text(
                     'Weekly Transactions',
                     style: TextStyle(color: Colors.black, fontSize: 18),
@@ -95,8 +95,14 @@ class BarChartSample2State extends State<BarChartSample2> {
                       ),
                       Column(
                         children: [
-                          Text('Income'),
-                          Text('Expense'),
+                          Text(
+                            'Income',
+                            style: TextStyle(fontSize: 10),
+                          ),
+                          Text(
+                            'Expense',
+                            style: TextStyle(fontSize: 10),
+                          ),
                         ],
                       )
                     ],
