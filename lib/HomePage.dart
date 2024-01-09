@@ -6,6 +6,7 @@ import 'package:project_manager/TitleBanner.dart';
 import 'package:animations/animations.dart';
 import 'package:project_manager/ExpenseTracking.dart';
 import 'package:project_manager/ReportsPage.dart';
+import 'package:delayed_display/delayed_display.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -35,25 +36,31 @@ class _HomepageState extends State<Homepage> {
                 Row(
                   children: [
                     Expanded(
-                      child: ReusableCard(
-                        label: 'Expense Tracking',
-                        icon: Icons.account_balance_wallet,
-                        colour: kDarkColor,
-                        iconColour: kCardColor,
-                        onButtonPressed: () {
-                          return ExpenseTracking(); // Replace with the actual page/widget you want to show
-                        },
+                      child: DelayedDisplay(
+                        delay: Duration(milliseconds: 200),
+                        child: ReusableCard(
+                          label: 'Expense Tracking',
+                          icon: Icons.account_balance_wallet,
+                          colour: kDarkColor,
+                          iconColour: kCardColor,
+                          onButtonPressed: () {
+                            return ExpenseTracking(); // Replace with the actual page/widget you want to show
+                          },
+                        ),
                       ),
                     ),
                     Expanded(
-                      child: ReusableCard(
-                        label: 'Reports &\nCharts',
-                        icon: Icons.bar_chart,
-                        colour: kDarkColor,
-                        iconColour: kCardColor,
-                        onButtonPressed: () {
-                          return ReportsPage(); // Replace with the actual page/widget you want to show
-                        },
+                      child: DelayedDisplay(
+                        delay: Duration(milliseconds: 200),
+                        child: ReusableCard(
+                          label: 'Reports &\nCharts',
+                          icon: Icons.bar_chart,
+                          colour: kDarkColor,
+                          iconColour: kCardColor,
+                          onButtonPressed: () {
+                            return ReportsPage(); // Replace with the actual page/widget you want to show
+                          },
+                        ),
                       ),
                     ),
                   ],
@@ -62,32 +69,41 @@ class _HomepageState extends State<Homepage> {
                   height: 20,
                 ),
                 TitleBanner(title: 'Projects'),
-                ReusableCard(
-                  label: 'Porject 1',
-                  icon: Icons.assignment,
-                  colour: kDarkColor,
-                  iconColour: kCardColor,
-                  onButtonPressed: () {
-                    return CreateProject(); // Replace with the actual page/widget you want to show
-                  },
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 200),
+                  child: ReusableCard(
+                    label: 'Porject 1',
+                    icon: Icons.assignment,
+                    colour: kDarkColor,
+                    iconColour: kCardColor,
+                    onButtonPressed: () {
+                      return CreateProject(); // Replace with the actual page/widget you want to show
+                    },
+                  ),
                 ),
-                ReusableCard(
-                  label: 'Porject 2',
-                  icon: Icons.assignment,
-                  colour: kDarkColor,
-                  iconColour: kCardColor,
-                  onButtonPressed: () {
-                    return CreateProject(); // Replace with the actual page/widget you want to show
-                  },
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 200),
+                  child: ReusableCard(
+                    label: 'Porject 1',
+                    icon: Icons.assignment,
+                    colour: kDarkColor,
+                    iconColour: kCardColor,
+                    onButtonPressed: () {
+                      return CreateProject(); // Replace with the actual page/widget you want to show
+                    },
+                  ),
                 ),
-                ReusableCard(
-                  label: 'Porject 3',
-                  icon: Icons.assignment,
-                  colour: kDarkColor,
-                  iconColour: kCardColor,
-                  onButtonPressed: () {
-                    return CreateProject(); // Replace with the actual page/widget you want to show
-                  },
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 200),
+                  child: ReusableCard(
+                    label: 'Porject 1',
+                    icon: Icons.assignment,
+                    colour: kDarkColor,
+                    iconColour: kCardColor,
+                    onButtonPressed: () {
+                      return CreateProject(); // Replace with the actual page/widget you want to show
+                    },
+                  ),
                 ),
               ],
             ),

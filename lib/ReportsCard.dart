@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:animations/animations.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 
 class ReportsCard extends StatelessWidget {
   ReportsCard({
     required this.label,
     required this.icon,
-    required this.amountSpent,
+    required this.financialPercentage,
     required this.iconColour,
     required this.onButtonPressed,
     required this.financialPerfomance,
   });
 
-  final amountSpent;
+  final financialPercentage;
   final Color iconColour;
   final IconData icon;
   final String label;
@@ -70,7 +69,7 @@ class ReportsCard extends StatelessWidget {
                             ),
                             Row(children: [
                               Text(
-                                financialPerfomance + '%',
+                                financialPercentage + '%',
                                 style: TextStyle(color: iconColour),
                               ),
                               SizedBox(
@@ -89,14 +88,17 @@ class ReportsCard extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(top: 7),
                           child: Text(
-                            'Amount Spent',
+                            'Financial perfomance',
                             style: TextStyle(
                               fontSize: kNormalFontSize,
                               color: kDarkColor,
                             ),
                           ),
                         ),
-                        Text(amountSpent),
+                        Text(
+                          financialPerfomance,
+                          style: TextStyle(color: iconColour),
+                        ),
                       ],
                     ),
                   ),
@@ -107,38 +109,5 @@ class ReportsCard extends StatelessWidget {
         },
       ),
     );
-  }
-}
-
-class TrianglePainter extends CustomPainter {
-  final bool isUpward;
-
-  TrianglePainter(this.isUpward);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = Colors.blue // Set the color of the triangle
-      ..style = PaintingStyle.fill;
-
-    Path path = Path();
-
-    if (isUpward) {
-      path.moveTo(size.width / 2, 0);
-      path.lineTo(size.width, size.height);
-      path.lineTo(0, size.height);
-    } else {
-      path.moveTo(size.width / 2, size.height);
-      path.lineTo(size.width, 0);
-      path.lineTo(0, 0);
-    }
-
-    path.close();
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
   }
 }

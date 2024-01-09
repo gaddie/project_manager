@@ -11,8 +11,13 @@ class MyLineChart extends StatefulWidget {
 
 class _MyLineChartState extends State<MyLineChart> {
   List<Color> gradientColors = [
-    kDarkColor,
-    kDarkColor,
+    kGreenColor,
+    kGreenColor,
+  ];
+
+  List<Color> expenseColor = [
+    kRedColor,
+    kRedColor,
   ];
 
   bool showAvg = false;
@@ -155,6 +160,7 @@ class _MyLineChartState extends State<MyLineChart> {
     return Text(text, style: style, textAlign: TextAlign.left);
   }
 
+  // income and expense charts
   LineChartData mainData() {
     return LineChartData(
       gridData: FlGridData(
@@ -210,6 +216,42 @@ class _MyLineChartState extends State<MyLineChart> {
       minY: 0,
       maxY: 11,
       lineBarsData: [
+        // Income Data
+        LineChartBarData(
+          spots: const [
+            FlSpot(0, 7),
+            FlSpot(1, 6),
+            FlSpot(2, 8),
+            FlSpot(3, 7.5),
+            FlSpot(4, 2),
+            FlSpot(5, 4),
+            FlSpot(6, 5),
+            FlSpot(7, 3),
+            FlSpot(8, 8),
+            FlSpot(9, 1),
+            FlSpot(10, 5),
+            FlSpot(11, 1),
+            FlSpot(12, 4),
+          ],
+          isCurved: true,
+          gradient: LinearGradient(
+            colors: gradientColors,
+          ),
+          barWidth: 3,
+          isStrokeCapRound: true,
+          dotData: const FlDotData(
+            show: false,
+          ),
+          belowBarData: BarAreaData(
+            show: true,
+            gradient: LinearGradient(
+              colors: gradientColors
+                  .map((color) => color.withOpacity(0.3))
+                  .toList(),
+            ),
+          ),
+        ),
+        // Expense Data
         LineChartBarData(
           spots: const [
             FlSpot(0, 3),
@@ -228,7 +270,7 @@ class _MyLineChartState extends State<MyLineChart> {
           ],
           isCurved: true,
           gradient: LinearGradient(
-            colors: gradientColors,
+            colors: expenseColor,
           ),
           barWidth: 3,
           isStrokeCapRound: true,
@@ -238,9 +280,8 @@ class _MyLineChartState extends State<MyLineChart> {
           belowBarData: BarAreaData(
             show: true,
             gradient: LinearGradient(
-              colors: gradientColors
-                  .map((color) => color.withOpacity(0.3))
-                  .toList(),
+              colors:
+                  expenseColor.map((color) => color.withOpacity(0.3)).toList(),
             ),
           ),
         ),
@@ -303,21 +344,22 @@ class _MyLineChartState extends State<MyLineChart> {
       minY: 0,
       maxY: 11,
       lineBarsData: [
+        // Income Data
         LineChartBarData(
           spots: const [
-            FlSpot(0, 3.44),
-            FlSpot(1, 3.44),
-            FlSpot(2, 3.44),
-            FlSpot(3, 3.44),
-            FlSpot(4, 3.44),
-            FlSpot(5, 3.44),
-            FlSpot(6, 3.44),
-            FlSpot(7, 3.44),
-            FlSpot(8, 3.44),
-            FlSpot(9, 3.44),
-            FlSpot(10, 3.44),
-            FlSpot(11, 3.44),
-            FlSpot(12, 3.44),
+            FlSpot(0, 5.44),
+            FlSpot(1, 5.44),
+            FlSpot(2, 5.44),
+            FlSpot(3, 5.44),
+            FlSpot(4, 5.44),
+            FlSpot(5, 5.44),
+            FlSpot(6, 5.44),
+            FlSpot(7, 5.44),
+            FlSpot(8, 5.44),
+            FlSpot(9, 5.44),
+            FlSpot(10, 5.44),
+            FlSpot(11, 5.44),
+            FlSpot(12, 5.44),
           ],
           isCurved: true,
           gradient: LinearGradient(
@@ -341,6 +383,51 @@ class _MyLineChartState extends State<MyLineChart> {
                     .lerp(0.2)!
                     .withOpacity(0.1),
                 ColorTween(begin: gradientColors[0], end: gradientColors[1])
+                    .lerp(0.2)!
+                    .withOpacity(0.1),
+              ],
+            ),
+          ),
+        ),
+        // Expense Data
+        LineChartBarData(
+          spots: const [
+            FlSpot(0, 3.44),
+            FlSpot(1, 3.44),
+            FlSpot(2, 3.44),
+            FlSpot(3, 3.44),
+            FlSpot(4, 3.44),
+            FlSpot(5, 3.44),
+            FlSpot(6, 3.44),
+            FlSpot(7, 3.44),
+            FlSpot(8, 3.44),
+            FlSpot(9, 3.44),
+            FlSpot(10, 3.44),
+            FlSpot(11, 3.44),
+            FlSpot(12, 3.44),
+          ],
+          isCurved: true,
+          gradient: LinearGradient(
+            colors: [
+              ColorTween(begin: expenseColor[0], end: expenseColor[1])
+                  .lerp(0.2)!,
+              ColorTween(begin: expenseColor[0], end: expenseColor[1])
+                  .lerp(0.2)!,
+            ],
+          ),
+          barWidth: 3,
+          isStrokeCapRound: true,
+          dotData: const FlDotData(
+            show: false,
+          ),
+          belowBarData: BarAreaData(
+            show: true,
+            gradient: LinearGradient(
+              colors: [
+                ColorTween(begin: expenseColor[0], end: expenseColor[1])
+                    .lerp(0.2)!
+                    .withOpacity(0.1),
+                ColorTween(begin: expenseColor[0], end: expenseColor[1])
                     .lerp(0.2)!
                     .withOpacity(0.1),
               ],

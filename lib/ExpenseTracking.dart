@@ -105,7 +105,7 @@ class _ExpenseTrackingState extends State<ExpenseTracking> {
   }
 }
 
-// income and expense slider
+// income and expense button animation
 class IncomeSlider extends StatelessWidget {
   const IncomeSlider({
     required this.isSelected,

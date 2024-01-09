@@ -1,3 +1,4 @@
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:project_manager/ChartPage.dart';
@@ -22,25 +23,31 @@ class _ReportsPageState extends State<ReportsPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ReportsCard(
-                  financialPerfomance: '5',
-                  label: 'Project Name',
-                  icon: kUpArrow,
-                  amountSpent: '20,000',
-                  iconColour: kGreenColor,
-                  onButtonPressed: () {
-                    return ChartsPage();
-                  },
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 200),
+                  child: ReportsCard(
+                    financialPerfomance: '20,000',
+                    label: 'Project Name',
+                    icon: kUpArrow,
+                    financialPercentage: '5',
+                    iconColour: kGreenColor,
+                    onButtonPressed: () {
+                      return ChartsPage();
+                    },
+                  ),
                 ),
-                ReportsCard(
-                  financialPerfomance: '20',
-                  label: 'Project Name',
-                  icon: kDownArrow,
-                  amountSpent: '5,000',
-                  iconColour: kRedColor,
-                  onButtonPressed: () {
-                    return ChartsPage();
-                  },
+                DelayedDisplay(
+                  delay: Duration(milliseconds: 200),
+                  child: ReportsCard(
+                    financialPerfomance: '5,000',
+                    label: 'Project Name',
+                    icon: kDownArrow,
+                    financialPercentage: '20',
+                    iconColour: kRedColor,
+                    onButtonPressed: () {
+                      return ChartsPage();
+                    },
+                  ),
                 ),
                 CustomButton(
                   txtColor: kLightColor,

@@ -3,6 +3,7 @@ import 'package:project_manager/LineGraph.dart';
 import 'package:project_manager/CustomButton.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:project_manager/BarChart.dart';
+import 'package:delayed_display/delayed_display.dart';
 
 class ChartsPage extends StatefulWidget {
   const ChartsPage({Key? key}) : super(key: key);
@@ -19,25 +20,37 @@ class _ChartsPageState extends State<ChartsPage> {
       body: SafeArea(
         child: ListView(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                BarChartSample2(),
-                SizedBox(
-                  height: 20,
-                ),
-                MyLineChart(),
-                CustomButton(
-                  txtColor: kLightColor,
-                  bgColor: kDarkColor,
-                  callBackFunction: () {
-                    setState(() {
-                      Navigator.pop(context);
-                    });
-                  },
-                  label: 'Back',
-                ),
-              ],
+            DelayedDisplay(
+              delay: Duration(milliseconds: 100),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  BarChartSample2(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Center(
+                      child: Text(
+                        'Total monthly Income and Expense',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ),
+                  MyLineChart(),
+                  CustomButton(
+                    txtColor: kLightColor,
+                    bgColor: kDarkColor,
+                    callBackFunction: () {
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    },
+                    label: 'Back',
+                  ),
+                ],
+              ),
             )
           ],
         ),
