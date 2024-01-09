@@ -20,12 +20,12 @@ class _ReportsPageState extends State<ReportsPage> {
       body: SafeArea(
         child: ListView(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 200),
-                  child: ReportsCard(
+            DelayedDisplay(
+              delay: Duration(microseconds: 200),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ReportsCard(
                     financialPerfomance: '20,000',
                     label: 'Project Name',
                     icon: kUpArrow,
@@ -35,10 +35,7 @@ class _ReportsPageState extends State<ReportsPage> {
                       return ChartsPage();
                     },
                   ),
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 200),
-                  child: ReportsCard(
+                  ReportsCard(
                     financialPerfomance: '5,000',
                     label: 'Project Name',
                     icon: kDownArrow,
@@ -48,18 +45,18 @@ class _ReportsPageState extends State<ReportsPage> {
                       return ChartsPage();
                     },
                   ),
-                ),
-                CustomButton(
-                  txtColor: kLightColor,
-                  bgColor: kDarkColor,
-                  callBackFunction: () {
-                    setState(() {
-                      Navigator.pop(context);
-                    });
-                  },
-                  label: 'Back',
-                ),
-              ],
+                  CustomButton(
+                    txtColor: kLightColor,
+                    bgColor: kDarkColor,
+                    callBackFunction: () {
+                      setState(() {
+                        Navigator.pop(context);
+                      });
+                    },
+                    label: 'Back',
+                  ),
+                ],
+              ),
             )
           ],
         ),

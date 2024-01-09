@@ -4,6 +4,7 @@ import 'package:project_manager/CustomButton.dart';
 import 'package:project_manager/DropdownMenu.dart';
 import 'package:project_manager/InputField.dart';
 import 'package:project_manager/TextField.dart';
+import 'package:delayed_display/delayed_display.dart';
 
 class ExpenseTracking extends StatefulWidget {
   @override
@@ -21,83 +22,86 @@ class _ExpenseTrackingState extends State<ExpenseTracking> {
       backgroundColor: kBgLightColor,
       body: SafeArea(
         child: ListView(children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  'Add Income Or Expense',
-                  style: TextStyle(fontSize: kTitleFontSize),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  height: 50,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: IncomeSlider(
-                          label: 'Income',
-                          isSelected: selectedOption == 'Income',
-                          onTapCallback: () {
-                            setState(() {
-                              selectedOption = 'Income';
-                            });
-                          },
-                        ),
-                      ),
-                      Expanded(
-                        child: IncomeSlider(
-                          label: 'Expense',
-                          isSelected: selectedOption == 'Expense',
-                          onTapCallback: () {
-                            setState(() {
-                              selectedOption = 'Expense';
-                            });
-                          },
-                        ),
-                      ),
-                    ],
+          DelayedDisplay(
+            delay: Duration(microseconds: 200),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    'Add Income Or Expense',
+                    style: TextStyle(fontSize: kTitleFontSize),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                child: Text(
-                  'Project Name',
-                  style:
-                      TextStyle(color: kDarkColor, fontSize: kNormalFontSize),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: 50,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: IncomeSlider(
+                            label: 'Income',
+                            isSelected: selectedOption == 'Income',
+                            onTapCallback: () {
+                              setState(() {
+                                selectedOption = 'Income';
+                              });
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          child: IncomeSlider(
+                            label: 'Expense',
+                            isSelected: selectedOption == 'Expense',
+                            onTapCallback: () {
+                              setState(() {
+                                selectedOption = 'Expense';
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: MyDropdownMenu()),
-              InputField(label: 'Amount'),
-              ProjectForm(),
-              CustomButton(
-                txtColor: kDarkColor,
-                bgColor: kLightColor,
-                callBackFunction: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                label: 'Add',
-              ),
-              CustomButton(
-                txtColor: kLightColor,
-                bgColor: kDarkColor,
-                callBackFunction: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                label: 'Back',
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                  child: Text(
+                    'Project Name',
+                    style:
+                        TextStyle(color: kDarkColor, fontSize: kNormalFontSize),
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: MyDropdownMenu()),
+                InputField(label: 'Amount'),
+                ProjectForm(),
+                CustomButton(
+                  txtColor: kDarkColor,
+                  bgColor: kLightColor,
+                  callBackFunction: () {
+                    setState(() {
+                      Navigator.pop(context);
+                    });
+                  },
+                  label: 'Add',
+                ),
+                CustomButton(
+                  txtColor: kLightColor,
+                  bgColor: kDarkColor,
+                  callBackFunction: () {
+                    setState(() {
+                      Navigator.pop(context);
+                    });
+                  },
+                  label: 'Back',
+                ),
+              ],
+            ),
           ),
         ]),
       ),
