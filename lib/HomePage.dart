@@ -7,6 +7,7 @@ import 'package:animations/animations.dart';
 import 'package:project_manager/ExpenseTracking.dart';
 import 'package:project_manager/ReportsPage.dart';
 import 'package:delayed_display/delayed_display.dart';
+import 'package:project_manager/LandingPage.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -89,7 +90,7 @@ class _HomepageState extends State<Homepage> {
                     colour: kDarkColor,
                     iconColour: kCardColor,
                     onButtonPressed: () {
-                      return CreateProject(); // Replace with the actual page/widget you want to show
+                      return LandingPage(); // Replace with the actual page/widget you want to show
                     },
                   ),
                 ),
