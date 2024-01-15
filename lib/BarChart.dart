@@ -4,8 +4,8 @@ import 'package:project_manager/Constants.dart';
 
 class BarChartSample2 extends StatefulWidget {
   BarChartSample2({super.key});
-  final Color leftBarColor = Colors.green;
-  final Color rightBarColor = Colors.red;
+  final Color leftBarColor = kGreenColor;
+  final Color rightBarColor = kRedColor;
   final Color avgColor = kDarkColor;
   @override
   State<StatefulWidget> createState() => BarChartSample2State();
@@ -62,7 +62,7 @@ class BarChartSample2State extends State<BarChartSample2> {
                   padding: EdgeInsets.only(left: 10),
                   child: Text(
                     'Weekly Transactions',
-                    style: TextStyle(color: Colors.black, fontSize: 18),
+                    style: TextStyle(color: kChartsTxtColor, fontSize: 18),
                   ),
                 ),
                 Padding(
@@ -73,7 +73,7 @@ class BarChartSample2State extends State<BarChartSample2> {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: kGreenColor,
                                 borderRadius: BorderRadius.circular(10)),
                             width: 20,
                             height: 7,
@@ -83,7 +83,7 @@ class BarChartSample2State extends State<BarChartSample2> {
                           ),
                           Container(
                             decoration: BoxDecoration(
-                                color: Colors.red,
+                                color: kRedColor,
                                 borderRadius: BorderRadius.circular(10)),
                             width: 20,
                             height: 7,
@@ -97,11 +97,13 @@ class BarChartSample2State extends State<BarChartSample2> {
                         children: [
                           Text(
                             'Income',
-                            style: TextStyle(fontSize: 10),
+                            style:
+                                TextStyle(fontSize: 10, color: kChartsTxtColor),
                           ),
                           Text(
                             'Expense',
-                            style: TextStyle(fontSize: 10),
+                            style:
+                                TextStyle(fontSize: 10, color: kChartsTxtColor),
                           ),
                         ],
                       )
@@ -238,7 +240,7 @@ class BarChartSample2State extends State<BarChartSample2> {
     final Widget text = Text(
       titles[value.toInt()],
       style: const TextStyle(
-        color: Color(0xff7589a2),
+        color: kChartsTxtColor,
         fontWeight: FontWeight.bold,
         fontSize: 14,
       ),
@@ -280,7 +282,7 @@ class BarChartSample2State extends State<BarChartSample2> {
         Container(
           width: width,
           height: 10,
-          color: Colors.green.withOpacity(0.4),
+          color: kDarkColor.withOpacity(0.4),
         ),
         const SizedBox(
           width: space,
@@ -288,7 +290,7 @@ class BarChartSample2State extends State<BarChartSample2> {
         Container(
           width: width,
           height: 28,
-          color: Colors.green.withOpacity(0.8),
+          color: kDarkColor.withOpacity(0.8),
         ),
         const SizedBox(
           width: space,
@@ -296,7 +298,7 @@ class BarChartSample2State extends State<BarChartSample2> {
         Container(
           width: width,
           height: 42,
-          color: Colors.green.withOpacity(1),
+          color: kDarkColor.withOpacity(1),
         ),
         const SizedBox(
           width: space,
@@ -304,7 +306,7 @@ class BarChartSample2State extends State<BarChartSample2> {
         Container(
           width: width,
           height: 28,
-          color: Colors.green.withOpacity(0.8),
+          color: kDarkColor.withOpacity(0.8),
         ),
         const SizedBox(
           width: space,
@@ -312,7 +314,7 @@ class BarChartSample2State extends State<BarChartSample2> {
         Container(
           width: width,
           height: 10,
-          color: Colors.green.withOpacity(0.4),
+          color: kDarkColor.withOpacity(0.4),
         ),
       ],
     );

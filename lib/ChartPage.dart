@@ -34,7 +34,7 @@ class _ChartsPageState extends State<ChartsPage> {
                     child: Center(
                       child: Text(
                         'Total monthly Income and Expense',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 18, color: kChartsTxtColor),
                       ),
                     ),
                   ),

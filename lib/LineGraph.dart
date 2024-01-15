@@ -54,7 +54,7 @@ class _MyLineChartState extends State<MyLineChart> {
               style: TextStyle(
                 fontSize: 12,
                 //used to change the color of avg when pressed
-                color: showAvg ? Colors.red : Colors.black,
+                color: showAvg ? kDarkColor : Color(0xFFFF0075),
               ),
             ),
           ),
@@ -67,6 +67,7 @@ class _MyLineChartState extends State<MyLineChart> {
     const style = TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 16,
+      color: kChartsTxtColor,
     );
     Widget text;
     switch (value.toInt()) {
@@ -119,9 +120,7 @@ class _MyLineChartState extends State<MyLineChart> {
 
   Widget leftTitleWidgets(double value, TitleMeta meta) {
     const style = TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 10,
-    );
+        fontWeight: FontWeight.bold, fontSize: 10, color: kChartsTxtColor);
     String text;
     switch (value.toInt()) {
       case 1:
@@ -170,13 +169,13 @@ class _MyLineChartState extends State<MyLineChart> {
         verticalInterval: 1,
         getDrawingHorizontalLine: (value) {
           return const FlLine(
-            color: kDarkColor,
+            color: Colors.grey,
             strokeWidth: 1,
           );
         },
         getDrawingVerticalLine: (value) {
           return const FlLine(
-            color: kDarkColor,
+            color: Colors.grey,
             strokeWidth: 1,
           );
         },

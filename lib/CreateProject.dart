@@ -43,10 +43,11 @@ class _CreateProjectState extends State<CreateProject> {
               InputField(label: 'Project Name'),
               InputField(label: 'Start Up cost'),
               InputField(label: 'Start Date'),
+              InputField(label: 'End Date'),
               ProjectForm(),
               CustomButton(
-                txtColor: kDarkColor,
-                bgColor: kLightColor,
+                txtColor: kLightColor,
+                bgColor: kDarkColor,
                 callBackFunction: () {
                   setState(() {
                     Navigator.pop(context);
