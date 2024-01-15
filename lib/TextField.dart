@@ -5,7 +5,7 @@ class ProjectForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -18,7 +18,7 @@ class ProjectForm extends StatelessWidget {
           ),
           SizedBox(height: 8.0),
           TextField(
-            maxLines: 8, // Set the number of lines you want for the description
+            maxLines: 5, // Set the number of lines you want for the description
             decoration: InputDecoration(
               contentPadding:
                   EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),

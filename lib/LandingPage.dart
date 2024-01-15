@@ -3,6 +3,8 @@ import 'package:project_manager/Constants.dart';
 import 'package:animations/animations.dart';
 import 'package:project_manager/CreateProject.dart';
 import 'package:project_manager/CustomButton.dart';
+import 'package:project_manager/ReusableContainer.dart';
+import 'package:project_manager/ReusableCard.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -74,44 +76,60 @@ class _LandingPageState extends State<LandingPage> {
         ),
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Hello'),
-              Text(
-                'My Dashboard',
-                style: TextStyle(fontSize: kNormalFontSize, color: kGreenColor),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'My Dashboard',
+                  style:
+                      TextStyle(fontSize: kNormalFontSize, color: kDarkColor),
+                ),
+              ),
+              Container(
+                height: 230,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: 303.0,
+                        child: ReusableCard(
+                          label: 'Expense Tracking',
+                          icon: Icons.account_balance_wallet_sharp,
+                          onButtonPressed: () {
+                            return CreateProject();
+                          },
+                        ),
+                      ),
+                      Container(
+                        width: 303.0,
+                        child: ReusableCard(
+                          label: 'Expense Tracking',
+                          icon: Icons.analytics,
+                          onButtonPressed: () {
+                            return CreateProject();
+                          },
+                        ),
+                      ),
+                      Container(
+                        width: 303.0,
+                        child: ReusableCard(
+                          label: 'Risk Analysis',
+                          icon: Icons.trending_up,
+                          onButtonPressed: () {
+                            return CreateProject();
+                          },
+                        ),
+                      ),
+// Add more containers or widgets as needed
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
         ));
   }
 }
-
-// SingleChildScrollView(
-// scrollDirection: Axis.horizontal,
-// child: Row(
-// children: <Widget>[
-// Container(
-// width: 200.0,
-// color: Colors.red,
-// child: Center(
-// child: Text('Item 1'),
-// ),
-// ),
-// Container(
-// width: 200.0,
-// color: Colors.green,
-// child: Center(
-// child: Text('Item 2'),
-// ),
-// ),
-// Container(
-// width: 200.0,
-// color: Colors.blue,
-// child: Center(
-// child: Text('Item 3'),
-// ),
-// ),
-// // Add more containers or widgets as needed
-// ],
-// ),
-// ),

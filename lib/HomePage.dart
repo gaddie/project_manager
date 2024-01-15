@@ -8,6 +8,7 @@ import 'package:project_manager/ExpenseTracking.dart';
 import 'package:project_manager/ReportsPage.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:project_manager/LandingPage.dart';
+import 'package:project_manager/ReusableContainer.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -34,78 +35,79 @@ class _HomepageState extends State<Homepage> {
                 TitleBanner(
                   title: "Dashboard",
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: DelayedDisplay(
-                        delay: Duration(milliseconds: 200),
-                        child: ReusableCard(
-                          label: 'Expense Tracking',
-                          icon: Icons.account_balance_wallet,
-                          colour: kDarkColor,
-                          iconColour: kCardColor,
-                          onButtonPressed: () {
-                            return ExpenseTracking(); // Replace with the actual page/widget you want to show
-                          },
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: DelayedDisplay(
-                        delay: Duration(milliseconds: 200),
-                        child: ReusableCard(
-                          label: 'Reports &\nCharts',
-                          icon: Icons.bar_chart,
-                          colour: kDarkColor,
-                          iconColour: kCardColor,
-                          onButtonPressed: () {
-                            return ReportsPage(); // Replace with the actual page/widget you want to show
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     Expanded(
+                //       child: DelayedDisplay(
+                //         delay: Duration(milliseconds: 200),
+                //         child: ReusableCard(
+                //           label: 'Expense Tracking',
+                //           icon: Icons.account_balance_wallet,
+                //           colour: kDarkColor,
+                //           iconColour: kCardColor,
+                //           onButtonPressed: () {
+                //             return ExpenseTracking(); // Replace with the actual page/widget you want to show
+                //           },
+                //         ),
+                //       ),
+                //     ),
+                //     Expanded(
+                //       child: DelayedDisplay(
+                //         delay: Duration(milliseconds: 200),
+                //         child: ReusableCard(
+                //           label: 'Reports &\nCharts',
+                //           icon: Icons.bar_chart,
+                //           colour: kDarkColor,
+                //           iconColour: kCardColor,
+                //           onButtonPressed: () {
+                //             return ReportsPage(); // Replace with the actual page/widget you want to show
+                //           },
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(
                   height: 20,
                 ),
                 TitleBanner(title: 'Projects'),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 200),
-                  child: ReusableCard(
-                    label: 'Porject 1',
-                    icon: Icons.assignment,
-                    colour: kDarkColor,
-                    iconColour: kCardColor,
-                    onButtonPressed: () {
-                      return CreateProject(); // Replace with the actual page/widget you want to show
-                    },
-                  ),
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 200),
-                  child: ReusableCard(
-                    label: 'Porject 1',
-                    icon: Icons.assignment,
-                    colour: kDarkColor,
-                    iconColour: kCardColor,
-                    onButtonPressed: () {
-                      return LandingPage(); // Replace with the actual page/widget you want to show
-                    },
-                  ),
-                ),
-                DelayedDisplay(
-                  delay: Duration(milliseconds: 200),
-                  child: ReusableCard(
-                    label: 'Porject 1',
-                    icon: Icons.assignment,
-                    colour: kDarkColor,
-                    iconColour: kCardColor,
-                    onButtonPressed: () {
-                      return CreateProject(); // Replace with the actual page/widget you want to show
-                    },
-                  ),
-                ),
+                // DelayedDisplay(
+                //   delay: Duration(milliseconds: 200),
+                //   child: ReusableCard(
+                //     label: 'Porject 1',
+                //     icon: Icons.assignment,
+                //     onButtonPressed: () {
+                //       return CreateProject(); // Replace with the actual page/widget you want to show
+                //     },
+                //   ),
+                // ),
+                // DelayedDisplay(
+                //   delay: Duration(milliseconds: 200),
+                //   child: ReusableCard(
+                //     label: 'Porject 1',
+                //     icon: Icons.assignment,
+                //     onButtonPressed: () {
+                //       return LandingPage(); // Replace with the actual page/widget you want to show
+                //     },
+                //   ),
+                // ),
+                // DelayedDisplay(
+                //   delay: Duration(milliseconds: 200),
+                //   child: ReusableCard(
+                //     label: 'Porject 3',
+                //     icon: Icons.assignment,
+                //     onButtonPressed: () {
+                //       return CreateProject();
+                //     },
+                //   ),
+                // ),
+                ReusableContainer(
+                  label: 'Expense Tracking',
+                  icon: Icons.account_balance_wallet_outlined,
+                  onButtonPressed: () {
+                    return LandingPage();
+                  },
+                )
               ],
             ),
           ),

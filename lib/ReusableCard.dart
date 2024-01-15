@@ -6,13 +6,9 @@ class ReusableCard extends StatelessWidget {
   ReusableCard({
     required this.label,
     required this.icon,
-    required this.colour,
-    required this.iconColour,
     required this.onButtonPressed,
   });
 
-  final Color colour;
-  final Color iconColour;
   final IconData icon;
   final String label;
   final Widget Function() onButtonPressed;
@@ -20,7 +16,7 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.only(left: 15, top: 20, bottom: 20),
       child: OpenContainer(
         closedColor: kLightColor,
         transitionType: ContainerTransitionType.fade,
@@ -39,57 +35,50 @@ class ReusableCard extends StatelessWidget {
             onTap: openContainer,
             child: Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        kDarkColor,
-                        kLightColor,
-                      ],
-                      tileMode: TileMode.clamp,
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: kDarkColor,
-                        blurRadius: 10.0,
-                        offset: Offset(0, 1),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          kDarkColor,
+                          kBottomAppColor
+                        ], // Adjust colors as needed
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
                       ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(
-                              icon,
-                              size: 60,
-                              color: kCardColor,
-                            ),
-                            Icon(
-                              Icons.navigate_next,
-                              size: 30,
-                              color: kCardColor,
-                            ),
-                          ],
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: kDarkColor,
+                          blurRadius: 10.0,
+                          offset: Offset(0, 1),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 7),
-                          child: Text(
+                      ],
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            icon,
+                            color: kLightColor,
+                            size: 40.0,
+                          ),
+                          Text(
                             label,
                             style: TextStyle(
+                              color: kLightColor,
                               fontSize: kNormalFontSize,
-                              color: kCardColor,
                             ),
                           ),
-                        )
-                      ],
+                          Icon(
+                            Icons.more_vert,
+                            color: kLightColor,
+                            size: 25.0,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
