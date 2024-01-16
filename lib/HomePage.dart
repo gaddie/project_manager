@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: kBgLightColor,
       extendBody: true,
       floatingActionButton: OpenContainer(
-        closedColor: kDarkColor,
+        closedColor: kBottomAppColor,
         transitionType: ContainerTransitionType.fade,
         openBuilder: (BuildContext context, VoidCallback _) {
           return CreateProject(); // Replace with the actual page you want to show
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
         closedBuilder: (BuildContext context, VoidCallback openContainer) {
           return FloatingActionButton(
             onPressed: openContainer,
-            backgroundColor: kDarkColor,
+            backgroundColor: kBottomAppColor,
             child: Icon(
               Icons.add,
               color: Colors.white,

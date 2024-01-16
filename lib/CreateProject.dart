@@ -21,7 +21,7 @@ class _CreateProjectState extends State<CreateProject> {
         backgroundColor: kBgLightColor,
         title: Text(
           'Create Project',
-          style: TextStyle(color: kDarkColor),
+          style: TextStyle(color: kBottomAppColor),
         ),
         leading: IconButton(
           icon: Icon(
@@ -47,7 +47,7 @@ class _CreateProjectState extends State<CreateProject> {
               ProjectForm(),
               CustomButton(
                 txtColor: kLightColor,
-                bgColor: kDarkColor,
+                bgColor: kBottomAppColor,
                 callBackFunction: () {
                   setState(() {
                     Navigator.pop(context);

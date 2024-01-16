@@ -47,7 +47,7 @@ class _ReportsPageState extends State<ReportsPage> {
                   ),
                   CustomButton(
                     txtColor: kLightColor,
-                    bgColor: kDarkColor,
+                    bgColor: kBottomAppColor,
                     callBackFunction: () {
                       setState(() {
                         Navigator.pop(context);

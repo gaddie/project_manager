@@ -15,7 +15,7 @@ class InputField extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              color: kDarkColor, // Set the color for the label
+              color: kBottomAppColor,
               fontSize: 16.0,
             ),
           ),

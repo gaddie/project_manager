@@ -64,7 +64,7 @@ class ReportsCard extends StatelessWidget {
                               label,
                               style: TextStyle(
                                 fontSize: kNormalFontSize,
-                                color: kDarkColor,
+                                color: kBottomAppColor,
                               ),
                             ),
                             Row(children: [
@@ -91,7 +91,7 @@ class ReportsCard extends StatelessWidget {
                             'Financial perfomance',
                             style: TextStyle(
                               fontSize: kNormalFontSize,
-                              color: kDarkColor,
+                              color: kBottomAppColor,
                             ),
                           ),
                         ),

@@ -18,7 +18,7 @@ class ReusableCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 15, top: 20, bottom: 20),
       child: OpenContainer(
-        closedColor: kLightColor,
+        closedColor: kBottomAppColor,
         transitionType: ContainerTransitionType.fade,
         openBuilder: (BuildContext context, VoidCallback _) {
           return onButtonPressed() ??

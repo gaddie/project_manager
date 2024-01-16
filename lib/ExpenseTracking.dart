@@ -81,7 +81,7 @@ class _ExpenseTrackingState extends State<ExpenseTracking> {
                 InputField(label: 'Amount'),
                 ProjectForm(),
                 CustomButton(
-                  txtColor: kDarkColor,
+                  txtColor: kBottomAppColor,
                   bgColor: kLightColor,
                   callBackFunction: () {
                     setState(() {
@@ -92,7 +92,7 @@ class _ExpenseTrackingState extends State<ExpenseTracking> {
                 ),
                 CustomButton(
                   txtColor: kLightColor,
-                  bgColor: kDarkColor,
+                  bgColor: kBottomAppColor,
                   callBackFunction: () {
                     setState(() {
                       Navigator.pop(context);
@@ -130,13 +130,13 @@ class IncomeSlider extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: isSelected ? kDarkColor : kLightColor,
+            color: isSelected ? kBottomAppColor : kLightColor,
           ),
           alignment: Alignment.center,
           child: Text(
             label,
             style: TextStyle(
-              color: isSelected ? kLightColor : kDarkColor,
+              color: isSelected ? kLightColor : kBottomAppColor,
             ),
           ),
         ),

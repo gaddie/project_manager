@@ -12,6 +12,7 @@ const kRedColor = Color(0xFFF56D91);
 const kChartsTxtColor = Color(0xff7589a2);
 const kUpArrow = Icons.arrow_circle_up_sharp;
 const kDownArrow = Icons.arrow_circle_down_sharp;
+
 const kGradient = LinearGradient(
   colors: [kDarkColor, kBottomAppColor], // Adjust colors as needed
   begin: Alignment.centerLeft,
