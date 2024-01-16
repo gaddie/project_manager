@@ -1,111 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:project_manager/CreateProject.dart';
-import 'package:project_manager/ReusableCard.dart';
 import 'package:project_manager/Constants.dart';
-import 'package:project_manager/TitleBanner.dart';
 import 'package:animations/animations.dart';
-import 'package:project_manager/ExpenseTracking.dart';
+import 'package:project_manager/CreateProject.dart';
 import 'package:project_manager/ReportsPage.dart';
-import 'package:delayed_display/delayed_display.dart';
-import 'package:project_manager/LandingPage.dart';
+import 'package:project_manager/ReusableCard.dart';
+import 'package:project_manager/ExpenseTracking.dart';
 import 'package:project_manager/ReusableContainer.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({Key? key}) : super(key: key);
-
+class HomePage extends StatefulWidget {
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBgLightColor,
-      body: CustomScrollView(
-        slivers: [
-          SliverPersistentHeader(
-            delegate: SliverAppBar(),
-            pinned: true,
-          ),
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TitleBanner(
-                  title: "Dashboard",
-                ),
-                // Row(
-                //   children: [
-                //     Expanded(
-                //       child: DelayedDisplay(
-                //         delay: Duration(milliseconds: 200),
-                //         child: ReusableCard(
-                //           label: 'Expense Tracking',
-                //           icon: Icons.account_balance_wallet,
-                //           colour: kDarkColor,
-                //           iconColour: kCardColor,
-                //           onButtonPressed: () {
-                //             return ExpenseTracking(); // Replace with the actual page/widget you want to show
-                //           },
-                //         ),
-                //       ),
-                //     ),
-                //     Expanded(
-                //       child: DelayedDisplay(
-                //         delay: Duration(milliseconds: 200),
-                //         child: ReusableCard(
-                //           label: 'Reports &\nCharts',
-                //           icon: Icons.bar_chart,
-                //           colour: kDarkColor,
-                //           iconColour: kCardColor,
-                //           onButtonPressed: () {
-                //             return ReportsPage(); // Replace with the actual page/widget you want to show
-                //           },
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-                SizedBox(
-                  height: 20,
-                ),
-                TitleBanner(title: 'Projects'),
-                // DelayedDisplay(
-                //   delay: Duration(milliseconds: 200),
-                //   child: ReusableCard(
-                //     label: 'Porject 1',
-                //     icon: Icons.assignment,
-                //     onButtonPressed: () {
-                //       return CreateProject(); // Replace with the actual page/widget you want to show
-                //     },
-                //   ),
-                // ),
-                // DelayedDisplay(
-                //   delay: Duration(milliseconds: 200),
-                //   child: ReusableCard(
-                //     label: 'Porject 1',
-                //     icon: Icons.assignment,
-                //     onButtonPressed: () {
-                //       return LandingPage(); // Replace with the actual page/widget you want to show
-                //     },
-                //   ),
-                // ),
-                // DelayedDisplay(
-                //   delay: Duration(milliseconds: 200),
-                //   child: ReusableCard(
-                //     label: 'Porject 3',
-                //     icon: Icons.assignment,
-                //     onButtonPressed: () {
-                //       return CreateProject();
-                //     },
-                //   ),
-                // ),
-              ],
-            ),
-          ),
-        ],
-      ),
+      extendBody: true,
       floatingActionButton: OpenContainer(
         closedColor: kDarkColor,
         transitionType: ContainerTransitionType.fade,
@@ -127,94 +41,177 @@ class _HomepageState extends State<Homepage> {
           );
         },
       ),
-    );
-  }
-}
-
-// used to create the sliver AppBar with the animation
-
-class BackgroundWaveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-
-    const minSize = 140.0;
-    final p1Diff = ((minSize - size.height) * 0.5).truncate().abs();
-    path.lineTo(0.0, size.height - p1Diff);
-
-    final controlPoint = Offset(size.width * 0.4, size.height);
-    final endPoint = Offset(size.width, minSize);
-
-    path.quadraticBezierTo(
-        controlPoint.dx, controlPoint.dy, endPoint.dx, endPoint.dy);
-
-    path.lineTo(size.width, 0.0);
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(BackgroundWaveClipper oldClipper) => oldClipper != this;
-}
-
-class SliverAppBar extends SliverPersistentHeaderDelegate {
-  @override
-  Widget build(
-    BuildContext context,
-    double shrinkOffset,
-    bool overlapsContent,
-  ) {
-    return SizedBox(
-      height: 280,
-      child: ClipPath(
-        clipper: BackgroundWaveClipper(),
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: 280,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [kDarkColor, kLightColor],
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        elevation: 6.0,
+        shadowColor: kDarkColor,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: 60,
+        color: kBottomAppColor,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 5,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: List.generate(4, (index) {
+            return IconButton(
+              icon: Icon(
+                index == 0
+                    ? Icons.home_filled
+                    : index == 1
+                        ? Icons.notifications
+                        : index == 2
+                            ? Icons.person
+                            : Icons.settings,
+                color: _selectedIndex == index ? kDarkColor : kBgLightColor,
+              ),
+              onPressed: () {
+                setState(() {
+                  _selectedIndex = index;
+                  // Add logic to handle navigation or other actions
+                });
+              },
+            );
+          }),
+        ),
+      ),
+      body: SafeArea(
+        child: ListView(children: [
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 20, left: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Row(
+                  children: [
+                    Image(
+                      image: AssetImage('images/logo.png'),
+                      height: 30,
+                      width: 30,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      'HOME',
+                      style: TextStyle(
+                          fontSize: kNormalFontSize, color: kBottomAppColor),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: LinearGradient(
+                      colors: [
+                        kDarkColor,
+                        kBottomAppColor
+                      ], // Adjust colors as needed
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    color: kDarkColor,
+                  ),
+                  height: 4,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'Hey there,',
+                  'My Dashboard',
                   style: TextStyle(
-                    fontSize: 35,
-                    color: Colors.white,
+                      fontSize: kNormalFontSize, color: kBottomAppColor),
+                ),
+              ),
+              Container(
+                height: 230,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: 303.0,
+                        child: ReusableCard(
+                          label: 'Expense Tracking',
+                          icon: Icons.account_balance_wallet_sharp,
+                          onButtonPressed: () {
+                            return ExpenseTracking();
+                          },
+                        ),
+                      ),
+                      Container(
+                        width: 303.0,
+                        child: ReusableCard(
+                          label: 'Reports and charts',
+                          icon: Icons.analytics,
+                          onButtonPressed: () {
+                            return ReportsPage();
+                          },
+                        ),
+                      ),
+                      Container(
+                        width: 303.0,
+                        child: ReusableCard(
+                          label: 'Risk Analysis',
+                          icon: Icons.trending_up,
+                          onButtonPressed: () {
+                            return CreateProject();
+                          },
+                        ),
+                      ),
+                      // Add more containers or widgets as needed
+                    ],
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Text(
-                  "It's a great day!",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: LinearGradient(
+                      colors: [
+                        kDarkColor,
+                        kBottomAppColor
+                      ], // Adjust colors as needed
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    color: kDarkColor,
                   ),
+                  height: 4,
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'My Projects',
+                  style: TextStyle(
+                      fontSize: kNormalFontSize, color: kBottomAppColor),
+                ),
+              ),
+              ReusableContainer(
+                  label: 'Project 1',
+                  onButtonPressed: () {
+                    return CreateProject();
+                  }),
+              ReusableContainer(
+                  label: 'Project 2',
+                  onButtonPressed: () {
+                    return CreateProject();
+                  }),
+              ReusableContainer(
+                  label: 'Project 3',
+                  onButtonPressed: () {
+                    return CreateProject();
+                  }),
             ],
           ),
-        ),
+        ]),
       ),
     );
   }
-
-  @override
-  double get maxExtent => 280;
-
-  @override
-  double get minExtent => 140;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      oldDelegate.maxExtent != maxExtent || oldDelegate.minExtent != minExtent;
 }
