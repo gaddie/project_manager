@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:animations/animations.dart';
-import 'dart:ui';
 
 class ReusableContainer extends StatelessWidget {
   ReusableContainer({
     required this.label,
-    required this.icon,
     required this.onButtonPressed,
   });
 
-  final IconData icon;
   final String label;
   final Widget Function() onButtonPressed;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: OpenContainer(
         closedColor: kLightColor,
         transitionType: ContainerTransitionType.fade,
@@ -29,57 +26,58 @@ class ReusableContainer extends StatelessWidget {
         closedShape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
-          ), // Adjust the radius as needed
+          ),
         ),
         closedBuilder: (BuildContext context, VoidCallback openContainer) {
           return InkWell(
             onTap: openContainer,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  width: 80.0,
-                  height: 150.0,
-                  margin: EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        kDarkColor,
-                        kBottomAppColor
-                      ], // Adjust colors as needed
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    ),
+                    borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
+                        color: kLightColor,
                         blurRadius: 10.0,
-                        offset: Offset(0.0, 5.0),
+                        offset: Offset(0, 1),
                       ),
                     ],
-                    borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.all(15),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
-                          icon,
-                          color: kLightColor,
-                          size: 40.0,
+                          Icons.star,
+                          size: 40,
+                          color: kBgLightColor,
                         ),
-                        Text(
-                          label,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: kNormalFontSize,
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          height: 45,
+                          width: 3,
+                          color: kBgLightColor,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                label,
+                                style: TextStyle(
+                                    fontSize: kNormalFontSize,
+                                    color: kBottomAppColor),
+                              ),
+                              Text(
+                                'In progress',
+                                style: TextStyle(color: kBottomAppColor),
+                              )
+                            ],
                           ),
-                        ),
-                        Icon(
-                          Icons.more_vert,
-                          color: kLightColor,
-                          size: 25.0,
                         ),
                       ],
                     ),

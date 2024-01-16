@@ -101,13 +101,6 @@ class _HomepageState extends State<Homepage> {
                 //     },
                 //   ),
                 // ),
-                ReusableContainer(
-                  label: 'Expense Tracking',
-                  icon: Icons.account_balance_wallet_outlined,
-                  onButtonPressed: () {
-                    return LandingPage();
-                  },
-                )
               ],
             ),
           ),
