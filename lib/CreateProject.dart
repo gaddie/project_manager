@@ -34,31 +34,38 @@ class _CreateProjectState extends State<CreateProject> {
           },
         ),
       ),
-      body: ListView(children: [
-        DelayedDisplay(
-          delay: Duration(microseconds: 200),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              InputField(label: 'Project Name'),
-              InputField(label: 'Start Up cost'),
-              InputField(label: 'Start Date'),
-              InputField(label: 'End Date'),
-              ProjectForm(),
-              CustomButton(
-                txtColor: kLightColor,
-                bgColor: kBottomAppColor,
-                callBackFunction: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-                label: 'Create Project',
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              child: DelayedDisplay(
+                delay: Duration(microseconds: 200),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    InputField(label: 'Project Name'),
+                    InputField(label: 'Start Up cost'),
+                    InputField(label: 'Start Date'),
+                    InputField(label: 'End Date'),
+                    ProjectForm(),
+                    CustomButton(
+                      txtColor: kLightColor,
+                      bgColor: kBottomAppColor,
+                      callBackFunction: () {
+                        setState(() {
+                          Navigator.pop(context);
+                        });
+                      },
+                      label: 'Create Project',
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
-        ),
-      ]),
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -6,6 +6,7 @@ import 'package:project_manager/ReportsPage.dart';
 import 'package:project_manager/ReusableCard.dart';
 import 'package:project_manager/ExpenseTracking.dart';
 import 'package:project_manager/ReusableContainer.dart';
+import 'package:project_manager/ProjectDetails.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -162,6 +163,9 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                       ),
+                      SizedBox(
+                        width: 15,
+                      )
                       // Add more containers or widgets as needed
                     ],
                   ),
@@ -196,17 +200,17 @@ class _HomePageState extends State<HomePage> {
               ReusableContainer(
                   label: 'Project 1',
                   onButtonPressed: () {
-                    return CreateProject();
+                    return ProjectDetails();
                   }),
               ReusableContainer(
                   label: 'Project 2',
                   onButtonPressed: () {
-                    return CreateProject();
+                    return ProjectDetails();
                   }),
               ReusableContainer(
                   label: 'Project 3',
                   onButtonPressed: () {
-                    return CreateProject();
+                    return ProjectDetails();
                   }),
             ],
           ),

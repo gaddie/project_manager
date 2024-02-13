@@ -41,7 +41,7 @@ class _ChartsPageState extends State<ChartsPage> {
                   MyLineChart(),
                   CustomButton(
                     txtColor: kLightColor,
-                    bgColor: kDarkColor,
+                    bgColor: kBottomAppColor,
                     callBackFunction: () {
                       setState(() {
                         Navigator.pop(context);
