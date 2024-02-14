@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_manager/LineGraph.dart';
-import 'package:project_manager/CustomButton.dart';
+import 'package:project_manager/Components/LineGraph.dart';
+import 'package:project_manager/Components/CustomButton.dart';
 import 'package:project_manager/Constants.dart';
-import 'package:project_manager/BarChart.dart';
+import 'package:project_manager/Components/BarChart.dart';
 import 'package:delayed_display/delayed_display.dart';
 
 class ChartsPage extends StatefulWidget {

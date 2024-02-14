@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
-import 'package:project_manager/ReusableContainer.dart';
-import 'package:project_manager/ProjectDetails.dart';
-import 'package:project_manager/CustomButton.dart';
+import 'package:project_manager/Components/ReusableContainer.dart';
+import 'package:project_manager/Screens/ProjectDetails.dart';
+import 'package:project_manager/Components/CustomButton.dart';
 
 class RiskAnalysis extends StatefulWidget {
   const RiskAnalysis({Key? key}) : super(key: key);

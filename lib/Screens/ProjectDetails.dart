@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:delayed_display/delayed_display.dart';
-import 'package:project_manager/CustomButton.dart';
+import 'package:project_manager/Components/CustomButton.dart';
 
 class ProjectDetails extends StatefulWidget {
   const ProjectDetails({Key? key}) : super(key: key);
