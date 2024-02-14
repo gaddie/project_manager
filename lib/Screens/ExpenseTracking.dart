@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
-import 'package:project_manager/CustomButton.dart';
-import 'package:project_manager/DropdownMenu.dart';
-import 'package:project_manager/InputField.dart';
-import 'package:project_manager/TextField.dart';
+import 'package:project_manager/Components/CustomButton.dart';
+import 'package:project_manager/Components/DropdownMenu.dart';
+import 'package:project_manager/Components/InputField.dart';
+import 'package:project_manager/Components/TextField.dart';
 import 'package:delayed_display/delayed_display.dart';
 
 class ExpenseTracking extends StatefulWidget {

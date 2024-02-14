@@ -1,9 +1,9 @@
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
-import 'package:project_manager/ChartPage.dart';
-import 'package:project_manager/ReportsCard.dart';
-import 'package:project_manager/CustomButton.dart';
+import 'package:project_manager/Screens/ChartPage.dart';
+import 'package:project_manager/Components/ReportsCard.dart';
+import 'package:project_manager/Components/CustomButton.dart';
 
 class ReportsPage extends StatefulWidget {
   const ReportsPage({Key? key}) : super(key: key);

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:animations/animations.dart';
-import 'package:project_manager/CreateProject.dart';
-import 'package:project_manager/ReportsPage.dart';
-import 'package:project_manager/ReusableCard.dart';
-import 'package:project_manager/ExpenseTracking.dart';
-import 'package:project_manager/ReusableContainer.dart';
-import 'package:project_manager/ProjectDetails.dart';
-import 'package:project_manager/RiskAnalysis.dart';
+import 'package:project_manager/Screens/CreateProject.dart';
+import 'package:project_manager/Screens/ReportsPage.dart';
+import 'package:project_manager/Components/ReusableCard.dart';
+import 'package:project_manager/Screens/ExpenseTracking.dart';
+import 'package:project_manager/Components/ReusableContainer.dart';
+import 'package:project_manager/Screens/ProjectDetails.dart';
+import 'package:project_manager/Screens/RiskAnalysis.dart';
 
 class HomePage extends StatefulWidget {
   @override
