@@ -7,6 +7,7 @@ import 'package:project_manager/ReusableCard.dart';
 import 'package:project_manager/ExpenseTracking.dart';
 import 'package:project_manager/ReusableContainer.dart';
 import 'package:project_manager/ProjectDetails.dart';
+import 'package:project_manager/RiskAnalysis.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -159,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                           label: 'Risk Analysis',
                           icon: Icons.trending_up,
                           onButtonPressed: () {
-                            return CreateProject();
+                            return RiskAnalysis();
                           },
                         ),
                       ),
@@ -198,20 +199,26 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               ReusableContainer(
-                  label: 'Project 1',
-                  onButtonPressed: () {
-                    return ProjectDetails();
-                  }),
+                label: 'Project 1',
+                condition: 'In progress',
+                onButtonPressed: () {
+                  return ProjectDetails();
+                },
+              ),
               ReusableContainer(
-                  label: 'Project 2',
-                  onButtonPressed: () {
-                    return ProjectDetails();
-                  }),
+                label: 'Project 2',
+                condition: 'In progress',
+                onButtonPressed: () {
+                  return ProjectDetails();
+                },
+              ),
               ReusableContainer(
-                  label: 'Project 3',
-                  onButtonPressed: () {
-                    return ProjectDetails();
-                  }),
+                label: 'Project 3',
+                condition: 'In progress',
+                onButtonPressed: () {
+                  return ProjectDetails();
+                },
+              ),
             ],
           ),
         ]),

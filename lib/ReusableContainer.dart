@@ -6,9 +6,13 @@ class ReusableContainer extends StatelessWidget {
   ReusableContainer({
     required this.label,
     required this.onButtonPressed,
+    required this.condition,
+    this.color,
   });
 
   final String label;
+  final String condition;
+  final Color? color;
   final Widget Function() onButtonPressed;
 
   @override
@@ -51,7 +55,7 @@ class ReusableContainer extends StatelessWidget {
                         Icon(
                           Icons.star,
                           size: 40,
-                          color: kBgLightColor,
+                          color: color ?? kBgLightColor,
                         ),
                         SizedBox(
                           width: 10,
@@ -73,7 +77,7 @@ class ReusableContainer extends StatelessWidget {
                                     color: kBottomAppColor),
                               ),
                               Text(
-                                'In progress',
+                                condition,
                                 style: TextStyle(color: kBottomAppColor),
                               )
                             ],
