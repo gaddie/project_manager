@@ -8,6 +8,7 @@ import 'package:project_manager/Screens/ExpenseTracking.dart';
 import 'package:project_manager/Components/ReusableContainer.dart';
 import 'package:project_manager/Screens/ProjectDetails.dart';
 import 'package:project_manager/Screens/RiskAnalysis.dart';
+import 'package:project_manager/Components/CustomButton.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -86,16 +87,19 @@ class _HomePageState extends State<HomePage> {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Row(
                   children: [
-                    Image(
-                      image: AssetImage('images/logo.png'),
-                      height: 30,
-                      width: 30,
+                    Hero(
+                      tag: 'logo',
+                      child: Image(
+                        image: AssetImage('images/logo.png'),
+                        height: 30,
+                        width: 30,
+                      ),
                     ),
                     SizedBox(
                       width: 10,
                     ),
                     Text(
-                      'HOME',
+                      'John Doe',
                       style: TextStyle(
                           fontSize: kNormalFontSize, color: kBottomAppColor),
                     ),
@@ -218,6 +222,16 @@ class _HomePageState extends State<HomePage> {
                 onButtonPressed: () {
                   return ProjectDetails();
                 },
+              ),
+              CustomButton(
+                txtColor: kLightColor,
+                bgColor: kBottomAppColor,
+                callBackFunction: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+                label: 'Back',
               ),
             ],
           ),
