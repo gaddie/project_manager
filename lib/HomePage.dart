@@ -216,13 +216,6 @@ class _HomePageState extends State<HomePage> {
                   return ProjectDetails();
                 },
               ),
-              ReusableContainer(
-                label: 'Project 3',
-                condition: 'In progress',
-                onButtonPressed: () {
-                  return ProjectDetails();
-                },
-              ),
               CustomButton(
                 txtColor: kLightColor,
                 bgColor: kBottomAppColor,

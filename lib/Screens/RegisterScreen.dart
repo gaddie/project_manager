@@ -5,16 +5,15 @@ import 'package:project_manager/Components/InputField.dart';
 import 'package:project_manager/Components/CustomButton.dart';
 import 'package:project_manager/Constants.dart';
 import 'package:project_manager/HomePage.dart';
-import 'package:project_manager/Screens/RegisterScreen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,26 +35,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 100,
                     ),
                   ),
+                  InputField(label: 'Username'),
                   InputField(label: 'Email'),
                   InputField(
                     label: 'Password',
                     password: true,
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          'Forgot Password',
-                          style: TextStyle(
-                            color: kBottomAppColor,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                      ),
-                    ),
+                  InputField(
+                    label: 'Confirm Password',
+                    password: true,
                   ),
                   CustomButton(
                     txtColor: kLightColor,
@@ -66,19 +54,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
-                    label: 'Login',
+                    label: 'Register',
                   ),
                   CustomButton(
                     txtColor: kLightColor,
                     bgColor: kBottomAppColor,
                     callBackFunction: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegisterScreen()),
-                      );
+                      Navigator.pop(context);
                     },
-                    label: 'Register',
+                    label: 'Back',
                   ),
                 ],
               ),
