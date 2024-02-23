@@ -31,7 +31,8 @@ class _ExpenseTrackingState extends State<ExpenseTracking> {
                   padding: EdgeInsets.all(20),
                   child: Text(
                     'Add Income Or Expense',
-                    style: TextStyle(fontSize: kTitleFontSize),
+                    style: TextStyle(
+                        fontSize: kTitleFontSize, color: kBottomAppColor),
                   ),
                 ),
                 Padding(
